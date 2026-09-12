@@ -149,7 +149,7 @@ financial-analytics-dashboard/
 
 The provided brief references a Figma link, but the supplied PDF contains only the text `Link: here`, without a usable Figma URL. Therefore the UI uses a clean analyst-focused design while implementing the written requirements rather than inventing a Figma specification. fileciteturn1file0L26-L33
 
-The supplied dataset contains transaction fields `id`, `date`, `amount`, `category`, `status`, `user_id`, and `user_profile`; these are preserved during seeding. fileciteturn1file1L90-L99
+The supplied dataset contains transaction fields `id`, `date`, `amount`, `category`, `status`, `user_id`, and `user_profile`;
 
 
 ## UI reference
