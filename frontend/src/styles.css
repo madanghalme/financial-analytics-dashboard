@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --p-bg:#242832; --p-sidebar:#171a21; --p-top:#1a1d25; --p-card:#1b1f28; --p-card2:#20242e;
+  --p-line:#2c313c; --p-muted:#777f90; --p-text:#f1f3f5; --p-green:#16c84a; --p-yellow:#d7aa27;
+  --p-blue:#4c8dff; --p-red:#d86767;
+}
+*{box-sizing:border-box}
+html,body,#root{min-height:100%;margin:0}
+body{background:var(--p-bg);color:var(--p-text);font-family:Inter,Arial,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}
+
+.penta-app{min-height:100vh;background:var(--p-bg);display:flex}
+.penta-sidebar{width:122px;flex:none;background:var(--p-sidebar);border-right:1px solid #20242d;min-height:100vh;padding:18px 9px;position:fixed;left:0;top:0;bottom:0;z-index:30}
+.penta-logo{height:35px;display:flex;align-items:center;gap:5px;padding-left:9px;margin-bottom:20px;font-size:18px}
+.penta-logo>span{width:15px;height:18px;position:relative;display:inline-block}
+.penta-mark-a{position:absolute;left:0;bottom:0;width:7px;height:10px;border-left:3px solid #18cf54;border-bottom:3px solid #18cf54;border-radius:0 0 0 6px}
+.penta-mark-b{position:absolute;right:0;top:0;width:9px;height:8px;border-top:3px solid #e4ae20;border-right:3px solid #e4ae20}
+.penta-sidebar nav{display:flex;flex-direction:column;gap:4px}
+.penta-sidebar nav button{height:39px;border:0;background:transparent;color:#717987;border-radius:5px;display:flex;align-items:center;gap:10px;padding:0 10px;font-size:9px;text-align:left}
+.penta-sidebar nav button:hover{background:#20242c;color:#cbd0d7}
+.penta-sidebar nav button.active{background:rgba(22,200,74,.04);color:var(--p-green);position:relative}
+.penta-sidebar nav button.active:before{content:"";position:absolute;left:-9px;width:3px;height:20px;border-radius:0 4px 4px 0;background:#eab52a}
+
+.penta-main{margin-left:122px;width:calc(100% - 122px);min-width:0}
+.penta-topbar{height:42px;background:var(--p-top);border-bottom:1px solid #20242d;display:flex;align-items:center;justify-content:space-between;padding:0 17px 0 14px;position:sticky;top:0;z-index:20}
+.penta-top-title{font-size:12px;font-weight:600}
+.penta-top-actions{display:flex;align-items:center;gap:13px}
+.top-search{width:126px;height:22px;background:#242934;border-radius:4px;display:flex;align-items:center;gap:5px;padding:0 7px;color:#626a79}
+.top-search input{background:transparent;border:0;outline:0;color:#b9bec7;font-size:8px;width:100%}
+.top-search input::placeholder{color:#6b7280}
+.top-icon{position:relative;background:transparent;border:0;color:#6d7583;padding:2px}
+.top-icon i{position:absolute;right:1px;top:1px;width:4px;height:4px;background:#1fcb58;border-radius:50%}
+.top-avatar{width:21px;height:21px;border-radius:6px;object-fit:cover}
+.mobile-menu{display:none;background:transparent;border:0;color:#cdd2d9}
+
+.penta-content{padding:18px 15px 14px;max-width:1000px;margin:auto}
+.penta-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:15px}
+.penta-stat{height:58px;background:#1a1e27;border:1px solid #242934;border-radius:6px;padding:10px 11px;display:flex;align-items:center;gap:12px}
+.penta-stat-icon{width:25px;height:25px;border-radius:5px;display:grid;place-items:center}
+.penta-stat-icon.balance{background:#24323a;color:#14c84b}.penta-stat-icon.revenue{background:#24343b;color:#14c84b}.penta-stat-icon.expenses{background:#29343b;color:#14c84b}.penta-stat-icon.savings{background:#26333a;color:#14c84b}
+.penta-stat span{font-size:7px;color:#777f8c;display:block;margin-bottom:2px}.penta-stat strong{font-size:14px;font-weight:600;letter-spacing:.1px}
+
+.penta-overview-grid{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(235px,1fr);gap:13px;margin-bottom:15px}
+.penta-overview,.penta-recent,.penta-transactions{background:#1a1e27;border:1px solid #242934;border-radius:6px}
+.penta-overview{height:177px;padding:13px 15px}
+.penta-recent{height:177px;padding:13px}
+.penta-panel-title{display:flex;align-items:center;justify-content:space-between}
+.penta-panel-title h3{font-size:10px;font-weight:600;margin:0}
+.penta-panel-title button{border:0;background:none;color:#19c950;font-size:7px}
+.penta-legend{display:flex;align-items:center;gap:13px}
+.penta-legend>span{font-size:7px;color:#8b929e;display:flex;align-items:center;gap:4px}
+.dot{width:5px;height:5px;border-radius:50%}.income-dot{background:#17c94e}.expense-dot{background:#d8a624}
+.penta-legend select{height:20px;background:#20252f;color:#818997;border:1px solid #2c313c;border-radius:4px;font-size:7px;padding:0 7px}
+.penta-chart{height:133px;margin-top:5px}
+.penta-loading{height:100%;display:grid;place-items:center;color:#7d8490;font-size:9px;gap:7px}
+.penta-recent .penta-panel-title{margin-bottom:11px}
+.recent-list{display:flex;flex-direction:column;gap:10px}
+.recent-row{display:flex;align-items:center;gap:8px}
+.recent-row img{width:24px;height:24px;border-radius:5px;object-fit:cover}
+.recent-main{min-width:0;flex:1}.recent-main span{display:block;color:#707887;font-size:6px;margin-bottom:2px}.recent-main strong{display:block;color:#d4d8dd;font-size:8px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.recent-row b{font-size:7px;font-weight:600}.income-text{color:#16ca50!important}.expense-text{color:#d5a927!important}
+
+.penta-transactions{overflow:hidden}
+.penta-trans-head{padding:11px 15px 10px;display:flex;align-items:center;justify-content:space-between}
+.penta-trans-head h2{font-size:18px;margin:0 0 2px;font-weight:600}
+.penta-trans-head>div:first-child span{font-size:7px;color:#727a88}
+.penta-table-actions{display:flex;align-items:center;gap:10px}
+.penta-table-search{width:184px;height:27px;background:#242934;border-radius:6px;display:flex;align-items:center;gap:6px;padding:0 9px;color:#707887}
+.penta-table-search input{background:transparent;border:0;outline:0;color:#c7cbd1;width:100%;font-size:8px}
+.penta-table-search input::placeholder{color:#666f7e}
+.date-range{font-size:7px;color:#7f8795;display:flex;align-items:center;gap:5px}
+.penta-filter,.penta-export{height:27px;border:1px solid #2b303b;background:#20242d;color:#a4abb5;border-radius:5px;font-size:8px;display:flex;align-items:center;gap:5px;padding:0 8px}
+.penta-export{background:#1dc84e;color:#07130a;border-color:#1dc84e;font-weight:600}
+.penta-filter-panel{display:none;padding:9px 15px;border-top:1px solid #252a34;border-bottom:1px solid #252a34;gap:8px;grid-template-columns:repeat(6,1fr)}
+.penta-filter-panel.show{display:grid}
+.penta-filter-panel label{font-size:7px;color:#737b89;display:block;margin-bottom:4px}
+.penta-filter-panel input,.penta-filter-panel select{width:100%;height:25px;background:#20242d;color:#cbd0d6;border:1px solid #303540;border-radius:4px;font-size:8px;padding:0 6px}
+.penta-filter-panel button{height:25px;background:#2a2f39;border:0;color:#aaa;font-size:8px;border-radius:4px;margin-top:13px}
+
+.penta-table-wrap{overflow-x:auto}
+.penta-table{width:100%;border-collapse:collapse;min-width:620px}
+.penta-table thead{background:#242934}
+.penta-table th{height:24px;color:#737b8b;text-align:left;font-size:8px;font-weight:500;padding:0 15px}
+.penta-table th button{background:none;border:0;color:inherit;font-size:inherit;padding:0}
+.penta-table td{height:37px;border-top:1px solid #252a34;padding:0 15px;font-size:8px;color:#afb5be;white-space:nowrap}
+.person-cell{display:flex;align-items:center;gap:8px;color:#cbd0d6}.person-cell img{width:23px;height:23px;border-radius:5px;object-fit:cover}
+.penta-status{font-size:7px;padding:3px 7px;border-radius:7px;font-weight:600}.penta-status.paid{background:#116d38;color:#24d65c}.penta-status.pending{background:#765d0d;color:#efc734}
+.more-btn{background:none;border:0;color:#626b79;padding:2px}
+.penta-empty{text-align:center;padding:30px;color:#737b89;font-size:9px}
+.penta-pagination{height:34px;border-top:1px solid #252a34;display:flex;align-items:center;justify-content:space-between;padding:0 15px;color:#697280;font-size:7px}
+.penta-pagination div{display:flex;gap:4px}.penta-pagination button{width:23px;height:20px;background:#232832;color:#aab0b8;border:1px solid #2e3440;border-radius:4px}
+.penta-footer{display:flex;justify-content:space-between;align-items:center;color:#565e6b;font-size:7px;padding:11px 2px}
+.penta-footer button{background:none;border:0;color:#69717d;display:flex;gap:5px;align-items:center;font-size:7px}
+
+.penta-nav-overlay{display:none}
+.boot{min-height:100vh;background:var(--p-bg);display:grid;place-items:center;color:#737b89;font-size:10px}
+.spinner{width:16px;height:16px;border:2px solid #333945;border-top-color:#1bca50;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Keep login consistent with the dark Penta visual language */
+.auth-page{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;background:#171a21;color:#fff}
+.auth-visual{background:#171a21;padding:48px 8vw;display:flex;flex-direction:column;justify-content:space-between}
+.auth-visual .brand{font-weight:700}.auth-visual .brand-mark{background:#1fc84e;color:#07130a}.auth-visual h1{font-size:clamp(34px,4vw,54px);line-height:1.04;max-width:620px;margin:10px 0 16px}.auth-copy{color:#858d9b;line-height:1.7;max-width:540px}.auth-points{display:flex;flex-wrap:wrap;gap:14px;color:#858d9b;font-size:10px}.auth-points span{display:flex;align-items:center;gap:6px}.auth-card-wrap{display:grid;place-items:center;padding:30px;background:#20242d}.auth-card{width:min(390px,100%);background:#1a1e27;border:1px solid #2a303b;border-radius:12px;padding:28px;box-shadow:0 25px 70px #0005}.auth-card h2{font-size:25px;margin:4px 0 6px}.auth-card label{display:block;color:#858d9b;font-size:10px;font-weight:600;margin:18px 0 6px}.auth-card .input-with-icon{height:43px;background:#20242d;border-color:#303640;color:#717987}.auth-card .input-with-icon input{color:#d9dde2}.auth-card .primary-btn{width:100%;height:43px;margin-top:20px;background:#1dc84e;color:#07130a;border:0;border-radius:6px;font-weight:700}.demo-hint{color:#626a78;font-size:9px;text-align:center}.mobile-brand{display:none}.alert-chip{display:flex;align-items:center;gap:7px;padding:9px;border-radius:5px;font-size:9px;margin-bottom:12px}.alert-chip.error{background:#402528;color:#ff9a9a;border:1px solid #643238}.alert-chip.success{background:#183b28;color:#6ee89a}.alert-chip .icon-btn{margin-left:auto;background:none;border:0;color:inherit}
+
+.modal-backdrop{position:fixed;inset:0;background:#07090dcc;display:grid;place-items:center;padding:18px;z-index:100}.modal{background:#1a1e27;color:#eef1f3;border:1px solid #303641;width:min(550px,100%);border-radius:9px;padding:20px;box-shadow:0 30px 80px #0008}.modal-head{display:flex;justify-content:space-between}.modal-head h3{margin:3px 0;font-size:17px}.modal-head .icon-btn{background:#242934;border:0;color:#9ba3ae;border-radius:5px}.export-preview{display:flex;align-items:center;gap:10px;background:#20252e;border:1px solid #303641;border-radius:6px;padding:11px;margin:15px 0;color:#1dca50}.export-preview div{flex:1;display:flex;flex-direction:column;gap:2px}.export-preview strong{font-size:10px}.export-preview span{font-size:8px;color:#727b89}.selected-count{color:#1dca50!important;font-weight:700}.column-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.column-option{border:1px solid #303640;background:#20242d;color:#aab1bb;border-radius:5px;padding:9px;display:flex;gap:8px;align-items:center;text-align:left;font-size:9px}.column-option.selected{border-color:#1cbd4c;background:#172b1e;color:#d9f4df}.column-option>span:first-child{width:18px;height:18px;display:grid;place-items:center}.empty-check{width:16px;height:16px;border:1px solid #454c58;border-radius:4px}.modal-actions{display:flex;justify-content:flex-end;gap:7px;margin-top:17px}.primary-btn,.ghost-btn{border-radius:5px;padding:8px 12px;border:1px solid #303640;font-size:9px}.primary-btn{background:#1dc84e;color:#061009;border-color:#1dc84e}.ghost-btn{background:#232832;color:#aab1bb}
+
+@media(max-width:900px){
+  .penta-sidebar{width:110px}.penta-main{margin-left:110px;width:calc(100% - 110px)}
+  .penta-stats{grid-template-columns:1fr 1fr}.penta-overview-grid{grid-template-columns:1fr}.penta-recent{height:auto}.penta-table-actions .date-range{display:none}
+}
+@media(max-width:680px){
+  .penta-sidebar{transform:translateX(-100%);transition:.2s}.penta-sidebar.open{transform:translateX(0)}.penta-main{margin-left:0;width:100%}.mobile-menu{display:block}.penta-nav-overlay{display:block;position:fixed;inset:0;background:#0008;z-index:25}
+  .penta-top-title{margin-right:auto;margin-left:8px}.penta-content{padding:12px 9px}.penta-stats{gap:7px}.penta-stat{height:55px;padding:8px}.penta-stat strong{font-size:12px}.penta-overview{height:190px;padding:11px}.penta-chart{height:146px}.penta-trans-head{align-items:flex-start;gap:10px;flex-direction:column}.penta-table-actions{width:100%;flex-wrap:wrap}.penta-table-search{flex:1;min-width:150px}.penta-filter-panel.show{grid-template-columns:1fr 1fr}.penta-export{margin-left:auto}
+}
+@media(max-width:430px){
+  .penta-topbar{padding:0 9px}.top-search{width:100px}.penta-stats{grid-template-columns:1fr 1fr}.penta-stat{gap:7px}.penta-stat-icon{width:23px;height:23px}.penta-stat span{font-size:6px}.penta-stat strong{font-size:11px}.penta-panel-title{gap:8px}.penta-legend span{display:none}.penta-table-search{width:100%;flex-basis:100%}.penta-filter-panel.show{grid-template-columns:1fr 1fr}.column-grid{grid-template-columns:1fr}
+}
